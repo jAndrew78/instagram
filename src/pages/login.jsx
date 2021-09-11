@@ -23,19 +23,24 @@ export default function Login() {
   return (
     <div className="container flex mx-auto max-w-screen-md items-center h-screen">
 
+      {/* LEFT SIDE - IPHONE IMAGE */}
       <div className="flex w-3/5">
         <img src="/assets/images/iphone-with-profile.png" alt="Iphone with Instagram App" />
       </div>
 
+      {/* RIGHT SIDE - LOGIN FORM, ETC */}
       <div className="flex flex-col w-2/5">
         <div className="flex flex-col items-center bg-white p-4 border border-gray-primary mb-4">
 
+          {/* INSTAGRAM LOGO */}
           <h1 className="flex justify-center w-full">
             <img src="/assets/logo.png" alt="Instagram Logo" className="mt-2 w-6/12 mb-4" />
           </h1>
 
+          {/* ERROR MSG */}
           {error && <p className="mb-4 text-xs text-red-primary">{error}</p>}
 
+          {/* LOGIN FORM */}
           <form onSubmit={handleLogin} method="POST">
 
             <input
@@ -67,14 +72,17 @@ export default function Login() {
 
           </form>
         </div>
+
+        {/* SIGN UP LINK */}
         <div className="flex justify-center items-center flex-col w-full bg-white p-4 border border-gray-primary">
           <p className="text-sm">
-            Don't have an account?{' '}
+            Don't have an account? {' '}
             <Link to="/signup" className="font-bold text-blue-medium">
               Sign Up
             </Link>
           </p>
         </div>
+        
       </div>
     </div>
   );
