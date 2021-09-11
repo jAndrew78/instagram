@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import FirebaseContext from '../context/firebase';
+import * as ROUTES from '../constants/routes';
 
 
 export default function Login() {
@@ -13,7 +14,18 @@ export default function Login() {
   const [error, setError] = useState('');
   const isInvalid = password === '' || emailAddress === '';
 
-  const handleLogin = () => {};
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      await firebase.auth().signInWithEmailAndPassword(emailAddress, password);
+      history.push(ROUTES.DASHBOARD);
+    } catch (err) {
+      // setEmailAddress('');
+      // setPassword('');
+      setError(err.message);
+    }
+  };
 
   useEffect(() => {
     document.title = 'Login - Instagram';
@@ -30,7 +42,7 @@ export default function Login() {
 
       {/* RIGHT SIDE - LOGIN FORM, ETC */}
       <div className="flex flex-col w-2/5">
-        <div className="flex flex-col items-center bg-white p-4 border border-gray-primary mb-4">
+        <div className="flex flex-col items-center bg-white p-4 border border-gray-primary rounded mb-4">
 
           {/* INSTAGRAM LOGO */}
           <h1 className="flex justify-center w-full">
@@ -63,7 +75,7 @@ export default function Login() {
               disabled={isInvalid}
               type="submit"
               className={`
-                bg-blue-700 text-white w-full rounded h-8 font-bold
+                bg-blue-medium text-white w-full rounded h-8 font-bold
                 ${isInvalid && "opacity-50"}
               `}
             >
@@ -74,7 +86,7 @@ export default function Login() {
         </div>
 
         {/* SIGN UP LINK */}
-        <div className="flex justify-center items-center flex-col w-full bg-white p-4 border border-gray-primary">
+        <div className="flex justify-center items-center flex-col w-full bg-white p-4 border border-gray-primary rounded">
           <p className="text-sm">
             Don't have an account? {' '}
             <Link to="/signup" className="font-bold text-blue-medium">
@@ -87,9 +99,3 @@ export default function Login() {
     </div>
   );
 };
-
-// text-red-primary
-// text-blue-medium
-// text-gray-base
-// border-gray-primary
-// bg-blue-medium
