@@ -2,6 +2,7 @@ import { useState, useContext, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import FirebaseContext from '../context/firebase';
 import * as ROUTES from '../constants/routes';
+import { doesUsernameExist } from '../services/firebase';
 
 
 export default function SignUp() {
@@ -20,17 +21,36 @@ export default function SignUp() {
   const handleSignUp = async (e) => {
     e.preventDefault();
 
-    // const usernameExists = await doesUsernameExist(username);
+    const usernameExists = await doesUsernameExist(username);
+    if(!usernameExists.length) {
+      try {
+        const createdUserResult = await firebase
+          .auth()
+          .createUserWithEmailAndPassword(emailAddress, password);
 
-    // try {
+        await createdUserResult.user.updateProfile({
+          displayName: username
+        });
 
+        await firebase.firestore().collection('users').add({
+          userId: createdUserResult.user.uid,
+          username: username.toLowerCase(),
+          fullName,
+          emailAddress: emailAddress.toLowerCase(),
+          following: [],
+          dateCreated: Date.now()
+        });
 
-    //   history.push(ROUTES.DASHBOARD);
-    // } catch (err) {
-    //   // setEmailAddress('');
-    //   // setPassword('');
-    //   setError(err.message);
-    // }
+        history.push(ROUTES.DASHBOARD);
+      } catch (error) {
+        setFullName('');
+        setEmailAddress('');
+        setPassword('');
+        setError(error.message);
+      }
+    } else {
+      setError('Username already exists');
+    }
   };
 
   useEffect(() => {
@@ -105,7 +125,7 @@ export default function SignUp() {
                 ${isInvalid && "opacity-50"}
               `}
             >
-              Log In
+              Sign Up
             </button>
 
           </form>
