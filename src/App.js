@@ -6,6 +6,7 @@ import * as ROUTES from './constants/routes';
 // .js file won't come through as a bundle of all pages available. Just imports the page that's requested
 const Login = lazy(() => import ('./pages/login'));
 const SignUp = lazy(() => import ('./pages/sign-up'));
+const NotFound = lazy(() => import ('./pages/not-found'));
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Switch>
           <Route path={ROUTES.LOGIN} component={Login} />
           <Route path={ROUTES.SIGN_UP} component={SignUp} />
+          <Route component={NotFound} />
         </Switch>
       </Suspense>
     </Router>
