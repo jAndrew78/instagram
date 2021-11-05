@@ -22,5 +22,6 @@ export default function useAuthListener() {
     return () => listener();
   }, [firebase])
 
+  // if firebase changes, run the listener func above, otherwise just return the user from local storage
   return { user };
 }
