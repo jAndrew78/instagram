@@ -10,6 +10,7 @@ export async function doesUsernameExist(username) {
   return result.docs.map((user) => user.data().length > 0);
 }
 
+// get user from firestore where userId matched userId in auth
 export async function getUserByUserId(userId) {
   const res = await firebase.firestore().collection('users').where('userId', '==', userId).get();
 
