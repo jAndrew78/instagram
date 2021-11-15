@@ -15,9 +15,11 @@ export default function Sidebar() {
 
   return (
     <>
-      <p>Sidebar</p>
-      <User />
-      <Suggestions />
+      {/* <p>Sidebar</p> */}
+      <div className='p-4'>
+        <User username={username} fullName={fullName} />
+        <Suggestions userId={userId} />
+      </div>
     </>
   );
 }
