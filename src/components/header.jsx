@@ -11,7 +11,7 @@ export default function Header() {
 
 
   return (
-    <header className="h-16 bg-white border-b border-gray-primaryy mb-8">
+    <header className="h-16 bg-white border-b border-gray-primary mb-8">
       <div className="container mx-auto max-w-screen-lg h-full">
         <div className="flex justify-between h-full">
           
