@@ -36,8 +36,10 @@ export default function SignUp() {
           userId: createdUserResult.user.uid,
           username: username.toLowerCase(),
           fullName,
+          // displayName: username,
           emailAddress: emailAddress.toLowerCase(),
           following: [],
+          // followers: [],
           dateCreated: Date.now()
         });
 
