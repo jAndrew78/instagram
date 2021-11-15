@@ -1,4 +1,6 @@
-import useUser from '../hooks/use-user';
+import useUser from '../../hooks/use-user';
+import User from './user';
+import Suggestions from './suggestions';
 
 
 export default function Sidebar() {
@@ -12,6 +14,10 @@ export default function Sidebar() {
   // console.log('fullName:', fullName, 'username:', username, 'userId:', userId);
 
   return (
-    <p>Sidebar</p>
+    <>
+      <p>Sidebar</p>
+      <User />
+      <Suggestions />
+    </>
   );
 }
