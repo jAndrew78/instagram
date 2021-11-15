@@ -2,7 +2,7 @@
 // export function seedDatabase(firebase) {
 //   const users = [
 //     {
-//       userId: '105AfnEwG6fH0E9JafPSbiVwPUj1',
+//       userId: '7db1JWdxr3bGsJ012Fmar6bW9rq2',
 //       username: 'andrew',
 //       fullName: 'Andrew Traywick',
 //       emailAddress: 'andrew@andrew.com',
@@ -16,7 +16,7 @@
 //       fullName: 'Raffaello Sanzio da Urbino',
 //       emailAddress: 'raphael@sanzio.com',
 //       following: [],
-//       followers: ['105AfnEwG6fH0E9JafPSbiVwPUj1'],
+//       followers: ['7db1JWdxr3bGsJ012Fmar6bW9rq2'],
 //       dateCreated: Date.now()
 //     },
 //     {
@@ -25,7 +25,7 @@
 //       fullName: 'Salvador Dalí',
 //       emailAddress: 'salvador@dali.com',
 //       following: [],
-//       followers: ['105AfnEwG6fH0E9JafPSbiVwPUj1'],
+//       followers: ['7db1JWdxr3bGsJ012Fmar6bW9rq2'],
 //       dateCreated: Date.now()
 //     },
 //     {
@@ -34,7 +34,7 @@
 //       fullName: 'George Orwell',
 //       emailAddress: 'george@orwell.com',
 //       following: [],
-//       followers: ['105AfnEwG6fH0E9JafPSbiVwPUj1'],
+//       followers: ['7db1JWdxr3bGsJ012Fmar6bW9rq2'],
 //       dateCreated: Date.now()
 //     }
 //   ];
